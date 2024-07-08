@@ -1,7 +1,6 @@
 import { Controller, HttpCode, Post, Query } from '@nestjs/common';
 import * as fs from 'fs';
 import { simpleParser } from 'mailparser';
-import * as path from 'path';
 import * as https from 'https';
 import { supportedExtension } from '../utils';
 
@@ -15,16 +14,12 @@ export class MailController {
     const parsed = await simpleParser(fileInputStream, {});
 
     if (parsed.attachments && parsed.attachments.length > 0) {
-      console.log(`\nSaving attachments from Email`);
       parsed.attachments.forEach((attachment) => {
         const filename = attachment.filename;
 
         if (!supportedExtension(filename)) {
           return;
         }
-
-        const filePath = path.join(__dirname, `/${filename}`);
-        fs.writeFileSync(filePath, attachment.content);
 
         const dataRaw = Buffer.from(attachment.content);
 
