@@ -1,14 +1,17 @@
-import { Controller, HttpCode, Post, Query } from '@nestjs/common';
+import { Controller, HttpCode, Post, Query, Res } from '@nestjs/common';
 import * as fs from 'fs';
 import { simpleParser } from 'mailparser';
 import * as https from 'https';
 import { supportedExtension, parseMsgCode } from '../utils';
+import { Response } from 'express';
 
 @Controller('mail')
 export class MailController {
+  // This shifted to library-specific mode instead of Standard mode
+  // you can find it at https://docs.nestjs.com/controllers#routing
   @HttpCode(200)
   @Post()
-  async parseEmail(@Query('url') url: string) {
+  async parseEmail(@Query('url') url: string, @Res() res: Response) {
     // Read email file and extract its data.
     const fileInputStream = fs.createReadStream(url);
     const mailAttachments = [];
@@ -32,10 +35,10 @@ export class MailController {
       });
 
       if (!mailAttachments.length) {
-        return parseMsgCode('NO_ATTACHMENTS');
+        return res.status(404).send(parseMsgCode('NO_ATTACHMENTS'));
       }
 
-      return mailAttachments;
+      return res.send(mailAttachments);
     } else if (parsed.html) {
       // This will review if there were attachment as links inside of the email's body
       let potencialUrls = parsed.html
@@ -46,7 +49,7 @@ export class MailController {
       potencialUrls = potencialUrls.filter((url) => supportedExtension(url));
 
       if (!potencialUrls.length) {
-        return parseMsgCode('NO_VALID_ATTACHMENTS');
+        return res.status(400).send(parseMsgCode('NO_VALID_ATTACHMENTS'));
       }
 
       // It will create an array with Promises that will be solved previously to return
@@ -69,9 +72,9 @@ export class MailController {
       });
 
       await Promise.all(promisesArray);
-      return mailAttachments;
+      return res.send(mailAttachments);
     } else {
-      return parseMsgCode('NO_ATTACHMENTS');
+      return res.status(404).send(parseMsgCode('NO_ATTACHMENTS'));
     }
   }
 }
