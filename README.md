@@ -42,7 +42,7 @@ An endpoint called `/mail` was created to reads the attachments from an email fi
 curl --location --request POST 'http://localhost:3000/mail?url=path/to/filename.eml'
 ```
 
-You can import it on Postman and execute it as your own request from there. Now, `url` will be the location of your email file stored in your local machine. You'll be able to replace `path/to/filename.eml` with the whole path of your email file stored in your local machine.
+You can import it on Postman and execute it as your own request from there. Now, `url` will be the location of your email file stored in your local machine. You'll be able to replace `path/to/filename.eml` with the whole path of your email file stored in your local machine. Nevertheless, it provides some exmaples that you can employ. Look at the next section
 
 Remember, this endpoint needs `POST` method and this doesn't need a body request.
 
@@ -55,7 +55,7 @@ It provides some email files as example that you can download to local machine. 
 - example_email_3.eml: it has one JSON file attached as link in the body of the email.
 - example_email_4.eml: it has two JSON files attached as links in the body of the email.
 
-## Test
+# Test
 
 ```bash
 # unit tests
@@ -67,6 +67,13 @@ $ yarn run test:e2e
 # test coverage
 $ yarn run test:cov
 ```
+
+# Future work
+
+The next steps here are
+- Encapsulate part of the code on controller file in a service file.
+- Handling errors and returning suited status code
+- Employing tests
 
 # License
 
