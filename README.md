@@ -3,10 +3,12 @@ This is a small Nestjs project that reads an email only JSON attachments under t
 - as a file attachment
 - inside the body of the email as a link
 
+# Requirements
+- NodeJS 20.11.0
+
 # Technologies supported
 - NestJS v10
 - Mailparser v3
-- NodeJS v20
 
 # Installation
 
