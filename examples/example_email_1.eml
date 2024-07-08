@@ -1,0 +1,147 @@
+Delivered-To: rubenesda@gmail.com
+Received: by 2002:a05:7412:5192:b0:117:62a2:35e6 with SMTP id fn18csp3594447rdb;
+        Thu, 4 Jul 2024 09:00:38 -0700 (PDT)
+X-Received: by 2002:a05:6a00:b45:b0:70b:965:fdf9 with SMTP id d2e1a72fcca58-70b09660208mr973523b3a.33.1720108835654;
+        Thu, 04 Jul 2024 09:00:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1720108835; cv=none;
+        d=google.com; s=arc-20160816;
+        b=cx1yBHXcxIVZBmyhc1LYIyj37UTkd2sUjVfeQcIelNSKQ/3ots3CTBjRfWAd2vWIDx
+         KBTlYERM3ArUgwLZh/xwJtTrh99hfZLeSKIFde7IUr4iVVRwZGCeVH4PlOIxFzfD+6mR
+         cm3UcRVwwfxnbb1wRzDT2RIFQoDAyV29RXuUqnx6+k58Czf55G+ER6vWTyuAZ07e/hmY
+         QeFHneKKix7l438w/bjtCo2hPZRpj+6sctvl70QdpAaKp3N2hUWLMgdPIDXvkb4lVk7U
+         nN19NWgeNwQBs3LK6uFNCLalGRyRkzKPfIjdnVWHzwI+C/Gul8sPCfFsgzRD5KKCiiKj
+         L0rA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=IlRSxUhw1nXhfn8APO7Mk7dt98VL9+/yBcXNhNmFuUM=;
+        fh=jF+fJXcSAIVCCJ4KpIPmcmdlDuUBBIlnoKvbpy+LF4U=;
+        b=lQXQ/1SnXOOn/aXlZUhW9Vrgk2Qb73Cod3MGhBuyGJi9lV6c0pv0Mqps4ZKkfKr1Tv
+         MN2zjJiJ0j4hx7gVzjOg+A5W8xkDCfnR6uwifhsnMYYEtTOvzEJkCNli+uek0ag3qb4Z
+         NrAb0lL1taGAO9PCWRIyQT05w/O6vWqUZGelrPRr29Z4Raxpy0Aa6/knVbp8oo96t+mY
+         qWiZ0GX7w6QkDDYE5MOp3wNKH+6/dp8PBs/4ucE+C1Q5gWPFHJx6otAOAdLomnTNPsu9
+         rHofXOp3tq3uzjO1hCmJk2sO80UbgARU+8jL1qAA0YjOdcIxHvClD6v/teGtkprZG5/I
+         IMAw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@designli.co header.s=google header.b=nW5CAA0N;
+       spf=pass (google.com: domain of mariana.rubio@designli.co designates 209.85.220.41 as permitted sender) smtp.mailfrom=mariana.rubio@designli.co;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=designli.co;
+       dara=pass header.i=@gmail.com
+Return-Path: <mariana.rubio@designli.co>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 41be03b00d2f7-75ae680a372sor1698712a12.0.2024.07.04.09.00.35
+        for <rubenesda@gmail.com>
+        (Google Transport Security);
+        Thu, 04 Jul 2024 09:00:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mariana.rubio@designli.co designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@designli.co header.s=google header.b=nW5CAA0N;
+       spf=pass (google.com: domain of mariana.rubio@designli.co designates 209.85.220.41 as permitted sender) smtp.mailfrom=mariana.rubio@designli.co;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=designli.co;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=designli.co; s=google; t=1720108835; x=1720713635; dara=google.com;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=IlRSxUhw1nXhfn8APO7Mk7dt98VL9+/yBcXNhNmFuUM=;
+        b=nW5CAA0Nm75ImJ74ePW/OaKg/CWCJ2wVj+tJ64+Jw93grTZI9xxX+jo0DtTW0YsCsZ
+         J4BZoByaWKGnjU0z9Q5B5jmXSj6aEmSSseJaupdLflDftvWyI9Vq+GuCqtvNhNx/3BvW
+         u1Ivg4/bZGZ88mZdmz+rewFJa1b3qxIH5GO7c=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1720108835; x=1720713635;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IlRSxUhw1nXhfn8APO7Mk7dt98VL9+/yBcXNhNmFuUM=;
+        b=BxlwPxJOAndB0Qtu7C91S/qkZZ2Fbvf5gAJEjZIn/9/SGCOdaSvE88RN475nDly6tC
+         OhpfHfz2zEovvkXKNhCXwLqIY8xgNv4RX/fJSQj+MRrWL2j+CABH4y5y8ZLUGBf5Gyt0
+         REJUTIOMavIFqEDvkUdC7GK3hUvqQQVgGtwI2Hd1MbrKrq+1UZVsCJ8EM2z25uAwdA5y
+         FOCJKSaxBiS7ry+lnUTkKcqHKcV1OjC1UoUKnu2nDs3qK8R1Sx+FFulUH7cpr1mH2uE3
+         bvmG6qOdtsG3ypJ7uK8ElqAN+5HDgGMTna6BeVLXnUUWIyPa/DRimk461OyMyivvTGAz
+         Hj/Q==
+X-Gm-Message-State: AOJu0YzOr+ADsr0+eDij1rhU/gYwNCcE1KffjqMfo32Fq3lNPoGjwuPw
+	bH8ncDwLnRm7p8yC6HaQJADG6X59UZ7g/rNpnFbi6SryajeYEeLEyuy8UKrzRXCPPkxxfl4WR0l
+	+VHDLErgo6/1E8GK6Yn3ZWxEPsqeGrO9or++ETvA2NLURL2MXaJM=
+X-Google-Smtp-Source: AGHT+IHNTVWDoIpDo9j0WSgUhVo89m5hpJhL0yyGdfiN3CxvbekyA6/lazar/A0V4oNetpaZ8DHOZcOfQtOYN8Xj/1Y=
+X-Received: by 2002:a05:6a21:78a1:b0:1bd:28cf:763f with SMTP id
+ adf61e73a8af0-1c0cc8d4bc0mr2412099637.47.1720108834300; Thu, 04 Jul 2024
+ 09:00:34 -0700 (PDT)
+MIME-Version: 1.0
+From: Mariana Rubio <mariana.rubio@designli.co>
+Date: Thu, 4 Jul 2024 09:59:58 -0600
+Message-ID: <CAJVY96fmBu7S1xA2ZTTZ=JHheii0ziNVKPbHGkBrPi2rg36QuA@mail.gmail.com>
+Subject: Tech Test - Nest Developer
+To: Ruben Dario Escandon Guzman <rubenesda@gmail.com>
+Cc: Diego Morales <diego.morales@designli.co>
+Content-Type: multipart/alternative; boundary="0000000000000b3a6b061c6e0c97"
+
+--0000000000000b3a6b061c6e0c97
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello Ruben,
+
+To follow up on your selection process, here are the instructions for the
+technical test=F0=9F=94=97 for the Nest Developer
+<https://docs.google.com/document/d/1h7Tc0WGl_NqhNkZ0TjPn6uxxolO1oEu4HJRCoy=
+wmqgY/edit?usp=3Dsharing>
+opening.
+Once you have finished, please share the repository link *in response to
+this email *so our technical team can review it, and we can continue with
+the process=F0=9F=A4=93.
+
+If you have any questions, please let me know.
+Best regards.
+
+--
+
+
+*Mariana Rubio**HR Specialist, Designli.co <http://www.designli.co/>*
+
+Email: mariana.rubio@designli.co
+
+--0000000000000b3a6b061c6e0c97
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div class=3D"gmail_default" style=3D"font-family:tahoma,s=
+ans-serif"><div class=3D"gmail_default">Hello Ruben,</div><div class=3D"gma=
+il_default"><br></div><div class=3D"gmail_default"><div class=3D"gmail_defa=
+ult">To follow up on your selection process, here are the instructions for =
+the technical test=F0=9F=94=97=C2=A0for the=C2=A0<a href=3D"https://docs.go=
+ogle.com/document/d/1h7Tc0WGl_NqhNkZ0TjPn6uxxolO1oEu4HJRCoywmqgY/edit?usp=
+=3Dsharing" target=3D"_blank">Nest Developer</a>=C2=A0opening. Once you hav=
+e finished, please share the repository link=C2=A0<u>in response to this em=
+ail=C2=A0</u>so our technical team can review it, and we can continue with =
+the process=F0=9F=A4=93.</div><div class=3D"gmail_default"><span style=3D"t=
+ext-align:justify;background-color:transparent;color:rgb(0,0,0);font-family=
+:Roboto,sans-serif;font-size:11pt;font-variant-numeric:normal;font-variant-=
+east-asian:normal;font-variant-alternates:normal;vertical-align:baseline"><=
+br></span></div><div class=3D"gmail_default">If you have any questions, ple=
+ase let me know.<br></div><div class=3D"gmail_default">Best regards.</div><=
+/div></div><div><div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=
+=3D"gmail_signature"><div dir=3D"ltr"><p class=3D"MsoNormal" style=3D"backg=
+round-image:initial;background-position:initial;background-repeat:initial">=
+<span lang=3D"ES-SV"><span style=3D"color:rgb(136,136,136);font-family:Aria=
+l,sans-serif">--</span><font face=3D"Arial, sans-serif" style=3D"color:rgb(=
+34,34,34)"><span style=3D"font-size:9.5pt"><b><br></b></span></font></span>=
+</p><p class=3D"MsoNormal" style=3D"background-image:initial;background-pos=
+ition:initial;background-repeat:initial"><span lang=3D"ES-SV"><font face=3D=
+"Arial, sans-serif" style=3D"color:rgb(34,34,34)"><span style=3D"font-size:=
+9.5pt"><b>Mariana Rubio<br></b></span></font><b style=3D"color:rgb(34,34,34=
+)"><span lang=3D"ES-SV" style=3D"font-size:9.5pt;font-family:Arial,sans-ser=
+if;color:rgb(11,83,148)">HR Specialist,=C2=A0<a href=3D"http://www.designli=
+.co/" style=3D"color:rgb(17,85,204)" target=3D"_blank">Designli.co</a></spa=
+n></b></span></p><p class=3D"MsoNormal" style=3D"background-image:initial;b=
+ackground-position:initial;background-repeat:initial"><span lang=3D"ES-SV">=
+<span style=3D"color:rgb(11,83,148);font-family:Arial,sans-serif;font-size:=
+9.5pt">Email:=C2=A0</span><a href=3D"mailto:mariana.rubio@designli.co" styl=
+e=3D"font-family:Arial,sans-serif;font-size:9.5pt;color:rgb(17,85,204)" tar=
+get=3D"_blank">mariana.rubio@designli.co</a><b style=3D"color:rgb(34,34,34)=
+"><span lang=3D"ES-SV" style=3D"font-size:9.5pt;font-family:Arial,sans-seri=
+f;color:rgb(11,83,148)"><br></span></b></span></p><p class=3D"MsoNormal" st=
+yle=3D"color:rgb(34,34,34);background-image:initial;background-position:ini=
+tial;background-repeat:initial"><img src=3D"https://ci3.googleusercontent.c=
+om/mail-sig/AIorK4wUOSWxa1eAAWBzMkO5AqRfRVhmr4J-zZLNKD83TZ2zBMw-1U4Ly-aPfdO=
+2E5EZ7AL3c1SUOWw"><br></p></div></div></div></div>
+
+--0000000000000b3a6b061c6e0c97--

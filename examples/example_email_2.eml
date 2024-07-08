@@ -1,0 +1,31 @@
+MIME-Version: 1.0
+Date: Sun, 7 Jul 2024 00:18:23 -0500
+Message-ID: <CA+fGKMfJRbO7BMrHVv3azoUCiA2bpLmaMypGNj2r3=se1VKrJA@mail.gmail.com>
+Subject: JSON test
+From: Ruben Dario Escandon Guzman <rubenesda@gmail.com>
+To: Ruben Dario Escandon Guzman <rubenesda@gmail.com>
+Content-Type: multipart/mixed; boundary="000000000000fb6d5f061ca16c5c"
+
+--000000000000fb6d5f061ca16c5c
+Content-Type: multipart/alternative; boundary="000000000000fb6d5e061ca16c5a"
+
+--000000000000fb6d5e061ca16c5a
+Content-Type: text/plain; charset="UTF-8"
+
+This is a JSON test
+
+--000000000000fb6d5e061ca16c5a
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">This is a JSON test</div>
+
+--000000000000fb6d5e061ca16c5a--
+--000000000000fb6d5f061ca16c5c
+Content-Type: application/json; name="example.json"
+Content-Disposition: attachment; filename="example.json"
+Content-Transfer-Encoding: base64
+X-Attachment-Id: f_lyb3rlyu0
+Content-ID: <f_lyb3rlyu0>
+
+ewogICJmaXJzdG5hbWUiOiAiTGFycnkgU2FzaGEiLAogICJsYXN0bmFtZSI6ICJadmVyZXYiCn0=
+--000000000000fb6d5f061ca16c5c--
