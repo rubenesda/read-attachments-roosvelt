@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import { simpleParser } from 'mailparser';
 import * as path from 'path';
 import * as https from 'https';
+import { supportedExtension } from '../utils';
 
 @Controller('mail')
 export class MailController {
@@ -17,6 +18,11 @@ export class MailController {
       console.log(`\nSaving attachments from Email`);
       parsed.attachments.forEach((attachment) => {
         const filename = attachment.filename;
+
+        if (!supportedExtension(filename)) {
+          return;
+        }
+
         const filePath = path.join(__dirname, `/${filename}`);
         fs.writeFileSync(filePath, attachment.content);
 
@@ -25,14 +31,21 @@ export class MailController {
         mailAttachments.push(JSON.parse(dataRaw.toString()));
         console.log(`Saved supported attachment: ${filename}`);
       });
+
+      if (!mailAttachments.length) {
+        return 'No attachments found in Email';
+      }
+
       return mailAttachments;
     } else if (parsed.html) {
-      const potencialUrls = parsed.html
+      let potencialUrls = parsed.html
         .match(/href="([^"]*)"/g)
         .map((url) => url.replace('href="', '').replace('"', ''));
 
+      potencialUrls = potencialUrls.filter((url) => supportedExtension(url));
+
       if (!potencialUrls.length) {
-        return 'No attachments found in Email';
+        return 'No attachments with supported file extension found in Email';
       }
 
       const promisesArray = potencialUrls.map((url) => {
